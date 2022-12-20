@@ -32,4 +32,3 @@ Models folder contains all the model design and querying functions on model is r
 2. query.js (adding a user viewing a user and viewing all users)
 
 
-# practice
