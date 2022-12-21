@@ -1,8 +1,9 @@
 import {
-    Model, Table, Column, DataType, Index, Sequelize, ForeignKey,
+    Model, Table, Column, DataType, Index, Sequelize, ForeignKey, HasMany, BelongsTo,
   } from "sequelize-typescript";
 
   import { ulid } from "ulidx";
+import { CompanyTable } from "./CompanyTable";
 
   export interface UserAttributes {
 
@@ -73,4 +74,16 @@ import {
                   type: DataType.DATE,
               })
                   updatedAt?: Date;
+                  
+                
+                  @ForeignKey(() => CompanyTable)
+  @Column({
+    field: "companyName",
+    allowNull: true,
+    type: DataType.STRING(36),
+  })
+    companyName?: string;
+    @BelongsTo(() => CompanyTable)
+    company: CompanyTable;
+                 
   }

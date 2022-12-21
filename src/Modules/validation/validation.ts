@@ -93,3 +93,38 @@ export class GetAllUserSchema{
 
 
 }
+
+
+export class CreateCompanySchema{
+  @IsDefined()
+  @IsString()
+  @IsNotEmpty({message:"Companyname is required"})
+  companyname: string;
+
+  @IsDefined()
+  @IsString()
+  @IsNotEmpty({message: " company code is  required"})
+  companycode: string;
+
+  @IsDefined()
+  @IsString()
+  @IsNotEmpty({message: "Status id required"})
+  statusId: number;
+
+  @IsOptional()
+  @IsString()
+  id?: string;
+
+
+  public async validate(): Promise<CreateCompanySchema> {
+      const obj: CreateCompanySchema = plainToInstance(
+        CreateCompanySchema,
+        this
+      );
+      const errors: ValidationError[] = await validate(obj, { whitelist: true });
+      if (errors.length > 0) {
+       console.log("error")
+      }
+      return obj as CreateCompanySchema;
+    }
+}
