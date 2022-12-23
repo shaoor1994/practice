@@ -16,13 +16,7 @@ export default class CompanyController {
              companyCode:data.companycode,
              id:data.id,
              statusId: status.ACTIVE, 
-            //     include: [
-
-            //     { model: CompanyTable,
-            //      as: "company",
-            //      attributes:["companyname","companycode"]
-            //     }
-            //  ]   
+               
         
         
         });

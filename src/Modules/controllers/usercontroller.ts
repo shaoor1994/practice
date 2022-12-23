@@ -10,6 +10,8 @@ import {
 import { CreateUserSchema, GetAllUserSchema, UpdateUserSchema } from "../validation/validation";
 import { NotFoundError } from "../../Generals/errors/NotFoundError";
 
+import { getPassword } from "../../Generals/generics/generics";
+
 export default class UserController {
     public static async createUser(ctx: Context) {
         try {
@@ -19,7 +21,8 @@ export default class UserController {
             const users = await UserTable.create({
 
                 userName: data.username,
-                password: data.password,
+                // password: data.password,
+                password:getPassword(),
                 id: data.id,
                 statusId: status.ACTIVE,
 
@@ -144,13 +147,13 @@ export default class UserController {
 
                 "username"
             ],
-            include: [
-                {
-                    model: CompanyTable,
-                    as: "company",
-                    attributes: ["companyname", "companycode"]
-                }
-            ]
+            // include: [
+            //     {
+            //         model: CompanyTable,
+            //         as: "company",
+            //         attributes: ["companyname", "companycode"]
+            //     }
+            // ]
         })
         ctx.body = {
             allUsers
