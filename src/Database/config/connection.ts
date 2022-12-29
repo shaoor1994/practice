@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
-import * as models from "../models/modelcall";
-import { UserTable } from "../models/modelcall";
+import * as models from "../models";
+import { UserTable } from "../models";
 let sequelize: Sequelize;
 
 const db = () => {
@@ -24,4 +24,7 @@ return sequelize;
 
 
 }
-export default db;
+
+
+
+export default db ;

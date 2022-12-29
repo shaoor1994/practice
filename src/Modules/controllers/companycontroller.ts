@@ -1,7 +1,7 @@
 import { plainToInstance } from "class-transformer";
 import { Context, } from "koa";
 import status from "../../Generals/status";
-import { CompanyTable } from "../../Database/models/modelcall";
+import { CompanyTable } from "../../Database/models";
 import { CreateCompanySchema } from "../validation/validation";
 
 export default class CompanyController {

@@ -26,6 +26,11 @@ import {
     @IsNotEmpty({message: "Status id required"})
     statusId: number;
 
+    
+    @IsDefined()
+    @IsString()
+    authtoken:string;
+
     @IsOptional()
     @IsString()
     id?: string;

@@ -13,6 +13,8 @@ import { CompanyTable } from "./CompanyTable";
   createdAt?: Date;
   updatedAt?: Date;
   statusId?: number;
+  authtoken?: string;
+  
 
 }
 
@@ -22,6 +24,9 @@ import { CompanyTable } from "./CompanyTable";
   })
 
   export class UserTable extends Model<UserAttributes, UserAttributes> implements UserAttributes {
+    role(role: any) {
+        throw new Error("Method not implemented.");
+    }
 
     @Column({
     	field: "username",
@@ -68,6 +73,15 @@ import { CompanyTable } from "./CompanyTable";
               })
                   createdAt?: Date;
           
+
+                  @Column({
+                    field: "token",
+                    allowNull: true,
+                    type: DataType.STRING(255),
+                  })
+                    authtoken: string;
+              
+
               @Column({
                 field:"updatedAt",
                   allowNull: true,
