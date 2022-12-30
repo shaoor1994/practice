@@ -24,11 +24,6 @@ similarly install packages for the app which includes:
   
  ## Starting the application
  use command `nodemon index.js`
- 
-### Structure
-The routes and controllers for routers are index.js and this is the file we start the server on.
-Models folder contains all the model design and querying functions on model is respective order:
-1. user.js (model design and creation)
-2. query.js (adding a user viewing a user and viewing all users)
+
 
 
