@@ -8,9 +8,9 @@ export const checkJwt = (ctx: Context, next: Next ) => {
 
     try {
         
-      
-    let token:any = ctx.request.query.token;
-      const decoded = jwt.verify(token , config.jwtSecret);
+     
+    const token = ctx.headers.authorization.split(' ')[1];
+    const decoded = jwt.verify(token , config.jwtSecret);
       if (!token) {
       
   
@@ -20,9 +20,9 @@ export const checkJwt = (ctx: Context, next: Next ) => {
         }
       ctx.body = decoded;
     } catch (err) {
-  
+    //   return res.status(401).send("Invalid Token");
     ctx.body = {
-        message:'Invalid Token',
+        message:err,
         status: (401)
     }
     }
